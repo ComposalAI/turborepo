@@ -22,7 +22,7 @@ async function persist(env = process.env, run = execFileSync) {
       }
     }
   } finally {
-    run('sync', [storage], {stdio: 'inherit'});
+    run('sync', ['-f', storage], {stdio: 'inherit'});
   }
   console.log('Turborepo cache stopped and artifact writes flushed.');
 }
