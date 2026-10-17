@@ -1,0 +1,20 @@
+name: Composal Turborepo
+description: Serve Turborepo artifacts from persistent Modal Volume v2 storage on Composal runners.
+author: ComposalAI
+inputs:
+  key:
+    description: Cache name within this repository and Git ref. Change it to start a fresh cache.
+    default: turborepo-v0
+outputs:
+  api:
+    description: Loopback URL of the local Turborepo remote cache server.
+  path:
+    description: Persistent artifact directory on the mounted filesystem.
+runs:
+  using: node24
+  main: main.cjs
+  post: post.cjs
+  post-if: always()
+branding:
+  icon: zap
+  color: yellow

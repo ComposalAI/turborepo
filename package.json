@@ -1,0 +1,17 @@
+{
+  "name": "composal-turborepo-action",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local Turborepo remote caching on Composal managed runners",
+  "license": "MIT",
+  "scripts": {
+    "build": "node -e \"require('node:fs').rmSync('dist', {recursive: true, force: true})\" && ncc build server.cjs -o dist --license THIRD_PARTY_LICENSES.txt --no-cache",
+    "test": "node --test *.test.cjs"
+  },
+  "dependencies": {
+    "turborepo-remote-cache": "2.14.3"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "0.45.0"
+  }
+}
